@@ -1,0 +1,73 @@
+#Question1
+winter_olympic <-read.csv("C:\Users\priya\OneDrive\Desktop\winter_olympic.csv")
+View(winter_olympic)
+#Dimensions of Data
+dim(winter_olympic)
+#Column Names of the Dataset
+names(winter_olympic)
+
+#Question 2-Sorting Winter Olympic Data with total medals column and NOC column
+sort_total<-winter_olympic[order(winter_olympic$Total,winter_olympic$NOC),]
+View(sort_total)
+
+#Question 3-Describe data using psych library and describe function
+library(psych)
+describe(winter_olympic)
+summary(winter_olympic)
+
+#Question 4-median of number of gold, silver, bronze and total medals
+median(winter_olympic$Gold)
+median(winter_olympic$Silver)
+median(winter_olympic$Bronze)
+median(winter_olympic$Total)
+#mean of GOld,Silver,Bronze and total
+mean(winter_olympic$Gold)
+mean(winter_olympic$Silver)
+mean(winter_olympic$Bronze)
+mean(winter_olympic$Total)
+#Total of number of G, S, B and T medals
+sum(winter_olympic$Gold)
+sum(winter_olympic$Silver)
+
+#Question 5-For Gold, look at summary stats, including: IQR, min, max, mean, var, sd, skew
+library(psych)
+describe(winter_olympic$Gold)
+summary(winter_olympic$Gold)
+IQR(winter_olympic$Gold)
+var(winter_olympic$Gold)
+min(winter_olympic$Gold)
+max(winter_olympic$Gold)
+mean(winter_olympic$Gold)
+sd(winter_olympic$Gold)
+skew(winter_olympic$Gold)
+
+#Question 6-Subset and Groupby
+library(psych)
+describeBy(winter_olympic$Total,group=winter_olympic$Region)
+#b.    Which region won the highest mean total medals?
+max(mean(winter_olympic$Total))
+#c.    How many countries are in this Geographic Region?
+north_america<-subset(winter_olympic,Region=='NORTH_A')
+north_america
+europe_region<-subset(winter_olympic,Region=='EUROPE')
+europe_region
+max(winter_olympic$Total)
+subset(winter_olympic,winter_olympic$Total==33)
+table(winter_olympic$Total,winter_olympic$Region)
+describeBy(winter_olympic,group=winter_olympic$Total)
+
+#Question 7-Explore correlations between Total medals and number of Gold and Bronze
+cor(winter_olympic$Total,winter_olympic$Gold)
+cor(winter_olympic$Total,winter_olympic$Bronze)
+cor(winter_olympic$Gold,winter_olympic$Bronze)
+cor(winter_olympic$Rank,winter_olympic$Total)
+
+#Question 8-Importing GDP Dataset
+#gdp<- read.csv("D:/GSFC/Jan 2024-April 2024/RPDDatasets/gdp.csv", header=TRUE)
+gdp <- read_excel("D:/GSFC/Jan 2024-April 2024/RPD/Datasets/gdp.xlsx")
+View(gdp)
+dim(gdp)
+mean(gdp$x2017,na.rm=TRUE)
+median(gdp$X2017,na.rm = TRUE)
+IQR(gdp$X2017,na.rm = TRUE)
+quantile(gdp$X2017,na.rm = TRUE)
