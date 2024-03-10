@@ -1,0 +1,83 @@
+# Compute the following:
+#   1. (123 - 45) / 4 + 4 * (72 / 2.34 - 3)
+(123 - 45) / 4 + 4 * (72 / 2.34 - 3)
+
+#   2. (((20*3)-14)^3)
+(((20*3)-14)^3)
+
+#   3. Absolute value of -88
+abs(-88)
+
+#   4. Base 10 logarithm of 72
+log10(72)
+
+#   5. Round the square root of 50 to the fourth decimal
+round(sqrt(50), 4)
+
+#   6. e^1.45 - 2.612
+exp(1.45) - 2.612
+
+#   7. 
+#   (a). Assign a variable year_born to 1984
+#   (b). Assign a variable year_current to 2020
+#   (c). Assign a variable age and compute it
+#   (d). Return True / False if person is eligible to vote in India 
+#        (if age is greater than or equal to 18)
+
+year_born <- 1984
+year_current <- 2020
+age <- year_current - year_born
+eligible <- age >= 18
+
+cat("Year born:", year_born, "\n")
+cat("Year current:", year_current, "\n")
+cat("Age:", age, "\n")
+cat("Eligible to vote (India):", eligible, "\n")
+
+# 8. Given: formula for area of circle is pi*r2 Given: Area = 100
+#    Write statement to find r. (Hint: utilize “sqrt” and “pi” functions)
+Area <- 100
+radius <- sqrt(Area / pi)
+cat("The radius of the circle is:", radius, "\n")
+
+# 9. Given: went to lunch and pre-tax bill was $45.90
+#    (a). Compute subtotal: add NYC tax of 8.875%
+#    (b). Compute 15% tip on subtotal
+#    (c). Compute 20% tip on subtotal
+
+pre_tax_bill <- 45.90
+
+nyc_tax_rate <- 8.875 / 100  # Convert percentage to decimal
+
+subtotal <- pre_tax_bill * (1 + nyc_tax_rate)
+
+tip_15_percent <- subtotal * 0.15
+
+tip_20_percent <- subtotal * 0.20
+
+cat("Pre-tax bill: $", pre_tax_bill, "\n")
+cat("Subtotal (including NYC tax): $", round(subtotal, 2), "\n")
+cat("15% Tip: $", round(tip_15_percent, 2), "\n")
+cat("20% Tip: $", round(tip_20_percent, 2), "\n")
+
+# 10. Assign a variable customers to 500
+#     (a). Assign a variable pizza_price to $20
+#     (b). Assign a variable todays_revenue (customers * pizza_price) and 
+#          Assign a variable customers to 500
+#     (c). Is today’s revenue greater than yesterday’s revenue of $7,000 and 
+#          less than tomorrow’s projected revenue of $11,000? Show the code that 
+#          would answer the following question.
+
+customers <- 500
+
+pizza_price <- 20
+
+todays_revenue <- customers * pizza_price
+
+yesterdays_revenue <- 7000
+tomorrows_projected_revenue <- 11000
+
+range <- todays_revenue > yesterdays_revenue & todays_revenue < tomorrows_projected_revenue
+
+cat("Today's Revenue: $", todays_revenue, "\n")
+cat("Is today's revenue within the range?", range, "\n")
