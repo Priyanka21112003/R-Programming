@@ -1,0 +1,156 @@
+#1) Write a R program to create a matrix(4*4) contains 1:16 numbers. 
+# (a)Display an element from 2nd row,3rd column.
+# (b)Display an element from 4th row,2nd column.
+# (c)Print all the elements of 1st row.
+# (d)Print all the elements of 3rd column.   
+
+A=matrix(c(1:16), nrow=4, ncol=4, byrow=TRUE)
+A
+A[2,3]
+A[4,2]
+A[1,]
+A[,3]
+
+#2) Write a R program to convert a matrix to a 1 dimensional array
+# (i)By Column
+# (ii)By row).
+
+row_names = c("row1", "row2", "row3", "row4")
+col_names = c("col1", "col2", "col3", "col4")
+M = matrix(c(1:16), nrow = 4, byrow = TRUE, dimnames = list(row_names, col_names))
+print("Original Matrix:")
+M
+result = as.vector(M)
+print("1 dimensional array (column wise):")
+result
+result = as.vector(t(M))
+print("1 dimensional array (row wise):")
+result
+
+#3) Write a R program to concatenate two given matrixes of same column but different rows.
+x1 = matrix(1:12, ncol=3)
+x2 = matrix(13:24, ncol=3)
+x1
+x2
+result = dim(rbind(x1,x2))
+result
+
+#4) Write a R program to list containing a vector, a matrix and a list and
+# give names to the elements in the list.
+l1 <- list(c("Red","Green","Black"), matrix(c(1,3,5,7,9,11), nrow = 2),
+           list("Python", "PHP", "Java"))
+l1
+names(l1) = c("Color", "Odd numbers", "Language(s)")
+l1
+l1[1]
+l1[2]
+
+#5) Write a R program to merge two given lists into one list.
+l2 = list(1,2,3)
+l3 = list("Red", "Green", "Black")
+l2
+l3
+mlist =  c(l2, l3)
+mlist
+
+# 6) Write a R program to count number of objects in a given list. 
+# Display the 1 st ,4 th and 5 the objects of a list. 
+# (Note: List should contain atleast 5 objects)
+list_data <- list(c("Red","Green","Black"), matrix(c(1,3,5,7,9,11), nrow = 2),
+                  list("Python", "PHP", "Java"))
+list_data
+length(list_data)
+
+#7) Write a R program to assign new names "One", "Two" and "Three" to the 
+# elements of a given list.
+list1 = list(g1 = 1:10, g2 = "R Programming", g3 = "HTML")
+list1
+names(list1) = c("one", "two", "three")
+list1
+
+#8) Write a R program to create list P=(Vector, String, String). 
+# Append new vector as 4th object in list P. 
+
+P <- list(Vector = c(1, 2, 3), String1 = "Hello", String2 = "World")
+P
+
+new_vector <- c(4, 5, 6)
+P <- c(P, NewVector = new_vector)
+
+P
+
+#9) Write a R program to add 10 to each element of the first vector in a
+# generated list P from (8).
+
+P <- list(Vector = c(1, 2, 3), String1 = "Hello", String2 = "World")
+P
+
+if (is.numeric(P$Vector)) {
+  P$Vector <- P$Vector + 10
+}
+
+P
+
+#10)Create a dataframe “Emp_Details” with fields 
+# (Emp_No, Emp_Name, Emp_age, Emp_Department). 
+# Insert details of 5 employees and display the dataframe. 
+# Creating a dataframe "Emp_Details"
+Emp_Details <- data.frame(
+  Emp_No = c(1, 2, 3, 4, 5),
+  Emp_Name = c("Priya", "Riya", "Khushi", "Ashhh", "Heet"),
+  Emp_Age = c(25, 30, 28, 22, 35),
+  Emp_Department = c("IT", "HR", "Finance", "Marketing", "Operations")
+)
+
+Emp_Details
+
+# 11) Write a program to perform following operations of “Emp_Details” dataframe : 
+# (a). Update field “Emp_Department” for 2nd and 4th Employees.
+# (b). Insert a field “Emp_Gender” into the datafrmae.
+# (c). Display Name of all the employees. 
+# (d). Append details of 2 new employees in dataframe.
+# (e). Create dataframe of employees whose age is greater than 40 as “Senior_Emp_Details” 
+# from “Emp_details”. (Hint : use subset function). 
+
+Emp_Details
+
+Emp_Details$Emp_Department[c(2, 4)] <- c("NewDepartment1", "NewDepartment2")
+
+Emp_Details$Emp_Gender <- c("Male", "Female", "Male", "Female", "Male")
+Emp_Details$Emp_Name
+
+new_employees <- data.frame(
+  Emp_No = c(6, 7),
+  Emp_Name = c("ABC", "DEF"),
+  Emp_Age = c(45, 42),
+  Emp_Department = c("Sales", "Research"),
+  Emp_Gender = c("Male", "Female")
+)
+
+Emp_Details <- rbind(Emp_Details, new_employees)
+Emp_Details
+
+Senior_Emp_Details <- subset(Emp_Details, Emp_Age > 40)
+Senior_Emp_Details
+
+# 12) Make filed “Emp_Gender” of “Emp_name” dataframe as factor and display 
+# the content of “Emp_Gender field.
+# (a). Print the number of levels for “Emp_Gender” field.
+# (b). Display the levels of “Emp_Gender” field.
+
+Emp_Details
+
+Emp_Details$Emp_Gender <- as.factor(Emp_Details$Emp_Gender)
+Emp_Details$Emp_Gender
+
+nlevels(Emp_Details$Emp_Gender)
+levels(Emp_Details$Emp_Gender)
+
+# 13) Create a Matrix of 4 rows and 3 columns. Convert this matrix into a dataframe.
+# (Use as.data.frame() function)
+
+m1 <- matrix(1:12, nrow = 4, ncol = 3)
+m1
+
+df <- as.data.frame(m1)
+df
